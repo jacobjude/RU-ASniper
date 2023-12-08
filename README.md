@@ -1,12 +1,12 @@
 # RU ASniper 
 
-RU ASniper (Rutgers AutoSniper) is a convenient tool designed for Rutgers University students to automate the process of sniping course sections on WebReg. It eliminates the need for constant monitoring and manual registration by automatically enrolling students in their desired courses as soon as a spot becomes available.
+RU ASniper (short for Rutgers AutoSniper) is fast course sniper that is designed to automate the process of sniping course sections on WebReg for Rutgers students. It eliminates the need for constant monitoring and manual registration by automatically enrolling people in their desired courses as soon as a spot becomes available.
 
 ## Installation Instructions
 
 To get started with RU ASniper, follow these steps:
 
-1. Ensure you have Python 3.10 or greater installed on your system. You can download Python from the official website: https://www.python.org/downloads/
+1. Ensure you have Python 3.10 or greater installed on your system.
 2. Clone the RU ASniper repository to your local machine or download the source code.
 3. Navigate to the directory where you have saved RU ASniper.
 4. Run `start.bat` (Windows) or `start.sh` (Linux/MacOS). This will:
@@ -19,11 +19,11 @@ To get started with RU ASniper, follow these steps:
 To run the course sniper, run `start.bat` (Windows) or `start.sh` (Linux/MacOS).
 During the initial setup, you will be prompted to provide the following information:
 
-- The academic year and term for which you are registering (e.g., 2023, Fall).
+- The academic year and term for which you are registering (e.g., 2024).
 - The campus for which you are registering courses (e.g., New Brunswick, Newark, Camden).
 - The course section numbers you wish to snipe.
 - Your Rutgers NetID and password for WebReg authentication. You will be prompted to authenticate via Duo upon login.
-- Decide whether to hide the browser during the sniping process.
+- Whether to hide the browser during the sniping process.
    - If you choose to hide the browser, only the terminal will be visible.
    - If you do not hide the browser, you will see the actions performed by the sniper in real-time.
 
@@ -34,7 +34,7 @@ For subsequent uses:
 
 Please ensure that your system's date and time are set accurately to avoid any synchronization issues with WebReg.
 
-## Usage Instructions
+## Usage Information
 
 Once RU ASniper is set up, it operates as follows:
 
