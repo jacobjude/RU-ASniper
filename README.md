@@ -4,7 +4,7 @@ RU ASniper (Rutgers AutoSniper) is fast course sniper that is designed to automa
 
 ## Installation Instructions
 
-To get started with RU ASniper, follow these steps:
+To get started with Rutgers AutoSniper, follow these steps:
 
 1. Ensure you have Python 3.10 or greater installed on your system.
 2. Clone the RU ASniper repository to your local machine or download the source code.
