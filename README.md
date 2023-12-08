@@ -8,8 +8,9 @@ To get started with Rutgers AutoSniper, follow these steps:
 
 1. Ensure you have Python 3.10 or greater installed on your system.
 2. Clone the RU ASniper repository to your local machine or download the source code.
-3. Navigate to the directory where you have saved RU ASniper.
-4. Run `start.bat` (Windows) or `start.sh` (Linux/MacOS). This will:
+   - Run `git clone https://github.com/jacobjude/RU-ASniper.git` or download the latest zip file from [Releases](https://github.com/jacobjude/RU-ASniper/releases)
+4. Navigate to the directory where you have saved RU ASniper.
+5. Run `start.bat` (Windows) or `start.sh` (Linux/MacOS). This will:
    - Create a Python virtual environment.
    - Install the necessary dependencies if they are not already installed.
    - Initiate the setup process for RU ASniper.
@@ -19,7 +20,7 @@ To get started with Rutgers AutoSniper, follow these steps:
 To run the course sniper, run `start.bat` (Windows) or `start.sh` (Linux/MacOS).
 During the initial setup, you will be prompted to provide the following information:
 
-- The academic year and term for which you are registering (e.g., 2024).
+- The academic year and term for which you are registering (e.g., 2024, Spring).
 - The campus for which you are registering courses (e.g., New Brunswick, Newark, Camden).
 - The course section numbers you wish to snipe.
 - Your Rutgers NetID and password for WebReg authentication. You will be prompted to authenticate via Duo upon login.
