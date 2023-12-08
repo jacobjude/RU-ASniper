@@ -49,8 +49,8 @@ Logs of the sniper's activity are written to the `logs.log` file in the root dir
 
 ## License
 
-This project is released under the [MIT License](LICENSE). By using RU ASniper, you agree to the terms of this license.
+This project is released under the [GNU General Public License v3.0](LICENSE). By using RU ASniper, you agree to the terms of this license.
 
 ## Disclaimer
 
-RU ASniper is not affiliated with, authorized, maintained, sponsored, or endorsed by Rutgers University or any of its affiliates or subsidiaries. This is an independent and unofficial software. Use at your own risk.
+RU ASniper is not affiliated with, authorized, maintained, sponsored, or endorsed by Rutgers University in any way. This is an independent and unofficial software. Use at your own risk.
