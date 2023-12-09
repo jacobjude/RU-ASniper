@@ -35,7 +35,7 @@ For subsequent uses:
 
 Please ensure that your system's date and time are set accurately to avoid any synchronization issues with WebReg.
 
-## Usage Information
+## How It Works
 
 Once RU ASniper is set up, it operates as follows:
 
