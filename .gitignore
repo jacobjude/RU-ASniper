@@ -1,0 +1,6 @@
+/.venv/
+/tests/
+/.git/
+config.txt
+src/__pycache__/
+logs.log

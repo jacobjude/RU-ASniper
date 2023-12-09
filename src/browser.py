@@ -7,7 +7,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 import config
-from webdriver_manager.chrome import ChromeDriverManager
 
 NETID = config.NETID
 PASSWORD = config.PASSWORD
@@ -28,9 +27,7 @@ class Browser:
         self.registering = False
 
    def open_browser(self):
-       path_to_chromedriver = ChromeDriverManager().install()
-       service = Service(executable_path=path_to_chromedriver)
-       self.driver = webdriver.Chrome(service=service, options=self.chrome_options)
+       self.driver = webdriver.Chrome(options=self.chrome_options)
        return self.driver
 
    def visit_url(self, url=SEMESTER_SELECTION_URL):
