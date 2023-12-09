@@ -130,9 +130,8 @@ class RutgersAutoSniper:
         time_until_next_check = (SECOND_TO_START_AT - datetime.now().second)
         fetching_string = f"{Fore.LIGHTGREEN_EX}Continuously fetching open sections!{Fore.RESET}" if self.fetching else f"Waiting until WebReg updates... {Fore.LIGHTRED_EX}({time_until_next_check} seconds left){Fore.RESET}"
         fetch_rate_string = f"Fetch rate: {Fore.LIGHTMAGENTA_EX}~{1/self.average_execution_time:.4f} times per second{Fore.RESET}" if self.average_execution_time > 0 else ""
+        string_to_print = f"{LOGO_STRING}\n-------------------{Fore.LIGHTMAGENTA_EX}{ctime()}{Fore.RESET}--------------------\n\n{closed_sections_string}{registered_sections_string}\n\n---------------------------------------------------------------\n\n{fetching_string}\n{fetch_rate_string}"
         self.clear_console()
-        self.print_logo()
-        string_to_print = f"\n-------------------{Fore.LIGHTMAGENTA_EX}{ctime()}{Fore.RESET}--------------------\n\n{closed_sections_string}{registered_sections_string}\n\n---------------------------------------------------------------\n\n{fetching_string}\n{fetch_rate_string}"
         print(string_to_print)
 
     def refresh_page_listener(self, event):
