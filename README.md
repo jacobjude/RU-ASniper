@@ -43,7 +43,7 @@ Once RU ASniper is set up, it operates as follows:
 2. It logs into WebReg using your provided credentials.
 3. RU ASniper will continuously monitor the availability of the course sections you specified.
 4. In the background, it will refresh and check to maintain your WebReg session.
-5. If an open section is detected, RU ASniper will automatically attempt to register you for that course within ~0.7 seconds of it opening.
+5. If an open section is detected, RU ASniper will automatically register you for that course within ~0.7 seconds of it opening.
 
 Logs of the sniper's activity are written to the `logs.log` file in the root directory of the project.
 
