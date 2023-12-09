@@ -1,6 +1,10 @@
 # RU ASniper 
 
-RU ASniper (Rutgers AutoSniper) is fast course sniper that is designed to automate the process of sniping course sections on WebReg for Rutgers students. It eliminates the need for constant monitoring and manual registration by automatically enrolling people in their desired courses as soon as a spot becomes available.
+RU ASniper (Rutgers AutoSniper) is fast course sniper that is designed to automate the process of sniping course sections on WebReg for Rutgers students. It eliminates the need for constant monitoring and manual registration by automatically enrolling people in their desired courses as soon as a spot becomes available, making it faster than any notification-based course sniper.
+
+<p align="center">
+ <img src="[http://some_place.com/image.png](https://github.com/jacobjude/RU-ASniper/assets/118640159/f5571540-f8a0-47bd-bfe4-845df128de20)" width="286" height="292" />
+</p>
 
 ## Installation
 
@@ -43,7 +47,7 @@ Once RU ASniper is set up, it operates as follows:
 2. It logs into WebReg using your provided credentials.
 3. RU ASniper will continuously monitor the availability of the course sections you specified.
 4. In the background, it will refresh and check to maintain your WebReg session.
-5. If an open section is detected, RU ASniper will automatically register you for that course within ~0.7 seconds of it opening.
+5. If an open section is detected, RU ASniper will automatically register you for that course within ~0.6 seconds of it opening.
 
 Logs of the sniper's activity are written to the `logs.log` file in the root directory of the project.
 
