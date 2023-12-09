@@ -2,7 +2,7 @@
 
 RU ASniper (Rutgers AutoSniper) is fast course sniper that is designed to automate the process of sniping course sections on WebReg for Rutgers students. It eliminates the need for constant monitoring and manual registration by automatically enrolling people in their desired courses as soon as a spot becomes available.
 
-## Installation Instructions
+## Installation
 
 To get started with Rutgers AutoSniper, follow these steps:
 
