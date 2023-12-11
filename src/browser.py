@@ -50,7 +50,7 @@ class Browser:
        continue_button = None
        retry_button = None
        
-       while self.is_waiting_for_duo():
+       while self.is_waiting_for_duo() and not (time.localtime().tm_hour >= 2 and time.localtime().tm_hour <= 6):
            try:
                continue_button = self.driver.find_element(By.ID, "trust-browser-button")
                break
@@ -140,6 +140,9 @@ class Browser:
             return False
         self.refreshing = True
         
+        self.driver.maximize_window()
+        # activate the browser window
+        self.driver.switch_to.window(self.driver.window_handles[0])
         self.refresh_page(url="https://sims.rutgers.edu/webreg/refresh.htm")
         
         if not self.is_on_registration_page():

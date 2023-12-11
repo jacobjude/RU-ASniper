@@ -130,13 +130,13 @@ class RutgersAutoSniper:
         time_until_next_check = (SECOND_TO_START_AT - datetime.now().second)
         fetching_string = f"{Fore.LIGHTGREEN_EX}Continuously fetching open sections!{Fore.RESET}" if self.fetching else f"Waiting until WebReg updates... {Fore.LIGHTRED_EX}({time_until_next_check} seconds left){Fore.RESET}"
         fetch_rate_string = f"Fetch rate: {Fore.LIGHTMAGENTA_EX}~{1/self.average_execution_time:.4f} times per second{Fore.RESET}" if self.average_execution_time > 0 else ""
-        string_to_print = f"{LOGO_STRING}\n-------------------{Fore.LIGHTMAGENTA_EX}{ctime()}{Fore.RESET}--------------------\n\n{closed_sections_string}{registered_sections_string}\n\n---------------------------------------------------------------\n\n{fetching_string}\n{fetch_rate_string}"
+        string_to_print = f"{LOGO_STRING}\n\n-------------------{Fore.LIGHTMAGENTA_EX}{ctime()}{Fore.RESET}--------------------\n\n{closed_sections_string}{registered_sections_string}\n\n---------------------------------------------------------------\n\n{fetching_string}\n{fetch_rate_string}"
         self.clear_console()
         print(string_to_print)
 
     def refresh_page_listener(self, event):
         if event.code == EVENT_JOB_EXECUTED:
-            logging.info(f"Refresh page job executed at {ctime()}.\n")
+            logging.info(f"Refresh page job executed at {ctime()} with return value {event.retval}\n")
         elif event.code == EVENT_JOB_ERROR:
             logging.exception(f'Refresh page job raised an exception at {ctime()}: {event.exception}\nTraceback: {event.traceback}\n\n')
         elif event.code == EVENT_JOB_MISSED:
@@ -170,8 +170,8 @@ class RutgersAutoSniper:
         
 
     def schedule_background_operations(self):
-        self.refresh_scheduler.add_job(self.browser.refresh_page_and_restore, "interval", seconds=BROWSER_REFRESH_INTERVAL_SECONDS, max_instances=1)
-        self.upkeep_scheduler.add_job(self.browser.keep_driver_running, "interval", seconds=BROWSER_UPKEEP_INTERVAL_SECONDS, max_instances=1)
+        self.refresh_scheduler.add_job(self.browser.refresh_page_and_restore, "interval", seconds=BROWSER_REFRESH_INTERVAL_SECONDS, max_instances=9999999)
+        self.upkeep_scheduler.add_job(self.browser.keep_driver_running, "interval", seconds=BROWSER_UPKEEP_INTERVAL_SECONDS, max_instances=9999999)
         self.misc_background_scheduler.add_job(self.print_to_console, "interval", seconds=PRINT_INTERVAL_SECONDS, max_instances=1)
 
         # add listeners
