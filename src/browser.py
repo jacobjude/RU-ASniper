@@ -139,10 +139,7 @@ class Browser:
         if self.registering:
             return False
         self.refreshing = True
-        
-        self.driver.maximize_window()
-        # activate the browser window
-        self.driver.switch_to.window(self.driver.window_handles[0])
+
         self.refresh_page(url="https://sims.rutgers.edu/webreg/refresh.htm")
         
         if not self.is_on_registration_page():
