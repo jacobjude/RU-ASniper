@@ -102,6 +102,7 @@ class RutgersAutoSniper:
                         
             except:
                 second = datetime.now().second
+                logging.error(f"Failed to fetch open sections at {ctime()}.\nTraceback: {sys.exc_info()}\n\n")
                 continue
             times_ran += 1
             second = datetime.now().second
@@ -153,6 +154,13 @@ class RutgersAutoSniper:
             logging.info(f"Kept driver running at {ctime()}.\n")
         elif event.code == EVENT_JOB_ERROR:
             logging.exception(f'Keep driver running job raised an exception at {ctime()}: {event.exception}\nTraceback: {event.traceback}\n\n')
+        elif event.code == EVENT_JOB_MISSED:
+            logging.warning(f'Keep driver running job missed at {ctime()}.\n')
+        elif event.code == EVENT_JOB_MAX_INSTANCES:
+            logging.warning(f'Maximum instances of keep driver running job reached at {ctime()}.\n')
+        elif event.code == EVENT_JOB_SUBMITTED:
+            logging.info(f"Keep driver running job submitted at {ctime()}.\n")
+        
 
     def schedule_registration_checks(self):
         try:
@@ -176,7 +184,7 @@ class RutgersAutoSniper:
 
         # add listeners
         self.refresh_scheduler.add_listener(self.refresh_page_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR | EVENT_JOB_MISSED | EVENT_JOB_MAX_INSTANCES | EVENT_JOB_SUBMITTED)
-        self.upkeep_scheduler.add_listener(self.keep_driver_running_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
+        self.upkeep_scheduler.add_listener(self.keep_driver_running_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR | EVENT_JOB_MISSED | EVENT_JOB_MAX_INSTANCES | EVENT_JOB_SUBMITTED)
         self.misc_background_scheduler.add_listener(self.print_to_console, EVENT_JOB_ERROR)
         
         self.browser.keep_driver_running()

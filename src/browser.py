@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-
+from datetime import datetime
 import config
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -13,6 +13,12 @@ NETID = config.NETID
 PASSWORD = config.PASSWORD
 SEMESTER_SELECTION = config.QUERY_PARAMS_WEBREG["semesterSelection"]
 SEMESTER_SELECTION_URL = f"https://sims.rutgers.edu/webreg/editSchedule.htm?login=cas&semesterSelection={SEMESTER_SELECTION}&indexList="
+
+WEBREG_SLEEP_START = datetime.strptime("1:55", "%H:%M").time()
+WEBREG_SLEEP_END = datetime.strptime("5:55", "%H:%M").time()
+WEBREG_SLEEP_START_10 = datetime.strptime("1:45", "%H:%M").time()
+WEBREG_SLEEP_END_10 = datetime.strptime("6:10", "%H:%M").time()
+
 
 class Browser:
    def __init__(self, show_browser=True, log_level=3, netid=NETID, password=PASSWORD):
@@ -50,7 +56,8 @@ class Browser:
        continue_button = None
        retry_button = None
        
-       while self.is_waiting_for_duo() and not (time.localtime().tm_hour >= 2 and time.localtime().tm_hour <= 6):
+       now = datetime.now().time()
+       while self.is_waiting_for_duo() and not (WEBREG_SLEEP_START <= now <= WEBREG_SLEEP_END):
            try:
                continue_button = self.driver.find_element(By.ID, "trust-browser-button")
                break
@@ -62,12 +69,14 @@ class Browser:
                break
            except NoSuchElementException:
                pass
+           now = datetime.now().time()
            
        if continue_button:
            continue_button.click()
        elif retry_button:
            retry_button.click()
            self.handle_duo()
+           
            
    def handle_login(self):
        netid_box = self.driver.find_element(By.NAME, "username")
@@ -139,6 +148,11 @@ class Browser:
         if self.registering:
             return False
         self.refreshing = True
+        # activate window
+        now = datetime.now().time()
+        # get 10 minutes before WEBREG_SLEEP_START
+        if WEBREG_SLEEP_START_10 <= now <= WEBREG_SLEEP_END_10:
+            self.driver.switch_to.window(self.driver.window_handles[0])
 
         self.refresh_page(url="https://sims.rutgers.edu/webreg/refresh.htm")
         
